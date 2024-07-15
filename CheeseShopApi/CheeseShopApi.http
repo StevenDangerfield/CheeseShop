@@ -1,0 +1,6 @@
+@CheeseShopApi_HostAddress = http://localhost:5010
+
+GET {{CheeseShopApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
