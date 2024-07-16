@@ -41,6 +41,10 @@ app.MapGet("/cheeses", () =>
 .WithName("GetCheeses")
 .WithOpenApi();
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
+app.MapFallbackToFile("index.html");
+
 app.Run();
 
 record Cheese(int id, string name)
