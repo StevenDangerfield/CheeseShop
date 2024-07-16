@@ -4,6 +4,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", builder =>
+        builder.WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+});
 
 var app = builder.Build();
 
@@ -16,15 +23,19 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var cheeseNames = new[]
+app.UseCors("AllowReactApp");
+
+var cheeses = new Cheese[]
 {
-    "Cheddar", "Brie", "Camembert", "Jarlsberg", "Swiss"
+    new(1, "Cheddar"),
+    new(2, "Brie"),
+    new(3, "Camembert"),
+    new(4, "Jarlsberg"),
+    new(5, "Swiss")
 };
 
 app.MapGet("/cheeses", () =>
 {
-    var cheeses =  Enumerable.Range(0, 4).Select(index => new Cheese(cheeseNames[index])).ToArray();
-
     return cheeses;
 })
 .WithName("GetCheeses")
@@ -32,7 +43,7 @@ app.MapGet("/cheeses", () =>
 
 app.Run();
 
-record Cheese(string name)
+record Cheese(int id, string name)
 {
     
 }
