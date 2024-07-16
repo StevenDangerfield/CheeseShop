@@ -1,15 +1,21 @@
 import React from "react";
+import cheese from "./cheese";
 
-function CheeseList() {
+type CheeseListProps = {
+    cheeses: cheese[];
+};
+
+// TODO: change to a table and add more cheese fields
+function CheeseList({ cheeses }: CheeseListProps) {
     return (
-        <>
+        <div>
             <h2>Cheese List</h2>
-            <ul>Cheese 1</ul>
-            <ul>Cheese 2</ul>
-            <ul>Cheese 3</ul>
-            <ul>Cheese 4</ul>
-            <ul>Cheese 5</ul>
-        </>
+            <ul>
+              {cheeses.map((cheeseItem) => (
+                <li key={cheeseItem.id}>{cheeseItem.name}</li>
+              ))}
+            </ul>
+        </div>
     );
 }
 
