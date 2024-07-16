@@ -1,4 +1,4 @@
-import React from "react";
+
 import cheese from "./cheese";
 
 type CheeseListProps = {

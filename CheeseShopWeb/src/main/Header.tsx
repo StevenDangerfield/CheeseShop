@@ -1,4 +1,4 @@
-import React from "react";
+
 
 // TODO: add logo
 function Header() {

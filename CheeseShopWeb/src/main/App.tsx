@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import './App.css'
 import Header from './Header'
 import CheeseList from './CheeseList'
-import cheese from './cheese'
 
 
 async function getData() {
