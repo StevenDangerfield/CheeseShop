@@ -5,6 +5,10 @@ type CheeseListProps = {
   cheeses: Cheese[];
 };
 
+function getImage(photo : string) {
+  return `data:image/jpeg;base64,${photo}`;
+}
+
 // TODO: Style better and include photos
 function CheeseList({ cheeses }: CheeseListProps) {
   return (
@@ -16,6 +20,7 @@ function CheeseList({ cheeses }: CheeseListProps) {
             <th>Name</th>
             <th>Price Per Kilo</th>
             <th>Colour</th>
+            <th>Photo</th>
           </tr>
         </thead>
         <tbody>
@@ -25,6 +30,7 @@ function CheeseList({ cheeses }: CheeseListProps) {
                 <td>{cheeseItem.name}</td>
                 <td>${cheeseItem.pricePerKilo}</td>
                 <td>{cheeseItem.colour}</td>
+                <td><img src={getImage(cheeseItem.photo)} alt={cheeseItem.name} width="128" height="128"/></td>
               </tr>
             ))}
         </tbody>

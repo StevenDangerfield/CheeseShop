@@ -27,14 +27,7 @@ app.UseCors("AllowReactApp");
 
 // TODO: Remove hard-coded data
 // TODO: Use a database for persistence; probably in-memory to start off, then evolve to a SQLite DB stored locally
-var cheeses = new Cheese[]
-{
-    new(1, "Cheddar", 1.70m, "Yellow"),
-    new(2, "Brie", 5.30m, "Cream"),
-    new(3, "Camembert", 6.40m, "Cream"),
-    new(4, "Jarlsberg", 10.00m, "Yellow"),
-    new(5, "Swiss", 2.60m, "Yellow")
-};
+var cheeses = SampleData.GetData();
 
 // TODO: Add more endpoints to handle CRUD
 app.MapGet("/cheeses", () =>
@@ -46,7 +39,3 @@ app.MapGet("/cheeses", () =>
 
 app.Run();
 
-record Cheese(int id, string name, decimal pricePerKilo, string colour)
-{
-    
-}
