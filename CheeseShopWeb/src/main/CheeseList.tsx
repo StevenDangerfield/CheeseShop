@@ -5,6 +5,7 @@ type CheeseListProps = {
   cheeses: Cheese[];
 };
 
+// TODO: Style better and include photos
 function CheeseList({ cheeses }: CheeseListProps) {
   return (
     <div>

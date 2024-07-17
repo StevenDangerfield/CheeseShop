@@ -25,10 +25,12 @@ function App() {
     fetchData();
   }, []);
 
+  // TODO: Buttons to Add/Edit/Delete Cheeses
+  // TODO: Form for adding/editing cheeses
   return (
     <>
-      <Header/>
-      <CheeseList cheeses={data}/>
+      <Header />
+      <CheeseList cheeses={data} />
     </>
   )
 }

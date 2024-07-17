@@ -25,6 +25,8 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowReactApp");
 
+// TODO: Remove hard-coded data
+// TODO: Use a database for persistence; probably in-memory to start off, then evolve to a SQLite DB stored locally
 var cheeses = new Cheese[]
 {
     new(1, "Cheddar", 1.70m, "Yellow"),
@@ -34,16 +36,13 @@ var cheeses = new Cheese[]
     new(5, "Swiss", 2.60m, "Yellow")
 };
 
+// TODO: Add more endpoints to handle CRUD
 app.MapGet("/cheeses", () =>
 {
     return cheeses;
 })
 .WithName("GetCheeses")
 .WithOpenApi();
-
-app.UseDefaultFiles();
-app.UseStaticFiles();
-app.MapFallbackToFile("index.html");
 
 app.Run();
 
