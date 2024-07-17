@@ -27,11 +27,11 @@ app.UseCors("AllowReactApp");
 
 var cheeses = new Cheese[]
 {
-    new(1, "Cheddar"),
-    new(2, "Brie"),
-    new(3, "Camembert"),
-    new(4, "Jarlsberg"),
-    new(5, "Swiss")
+    new(1, "Cheddar", 1.70m, "Yellow"),
+    new(2, "Brie", 5.30m, "Cream"),
+    new(3, "Camembert", 6.40m, "Cream"),
+    new(4, "Jarlsberg", 10.00m, "Yellow"),
+    new(5, "Swiss", 2.60m, "Yellow")
 };
 
 app.MapGet("/cheeses", () =>
@@ -47,7 +47,7 @@ app.MapFallbackToFile("index.html");
 
 app.Run();
 
-record Cheese(int id, string name)
+record Cheese(int id, string name, decimal pricePerKilo, string colour)
 {
     
 }

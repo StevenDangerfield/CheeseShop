@@ -2,7 +2,7 @@
 
 ## CheeseShopApi
 
-NOTE - The react app currently can't access the Production build; use the Development
+NOTE - The react app currently can't access the Production build; use the Development build
 
 ### Development
 

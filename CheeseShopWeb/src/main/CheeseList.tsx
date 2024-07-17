@@ -1,22 +1,35 @@
 
-import cheese from "./cheese";
+import Cheese from "../types/cheese";
 
 type CheeseListProps = {
-    cheeses: cheese[];
+  cheeses: Cheese[];
 };
 
-// TODO: change to a table and add more cheese fields
 function CheeseList({ cheeses }: CheeseListProps) {
-    return (
-        <div>
-            <h2>Cheese List</h2>
-            <ul>
-              {cheeses.map((cheeseItem) => (
-                <li key={cheeseItem.id}>{cheeseItem.name}</li>
-              ))}
-            </ul>
-        </div>
-    );
+  return (
+    <div>
+      <h2>Cheese List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price Per Kilo</th>
+            <th>Colour</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cheeses &&
+            cheeses.map((cheeseItem: Cheese) => (
+              <tr key={cheeseItem.id}>
+                <td>{cheeseItem.name}</td>
+                <td>${cheeseItem.pricePerKilo}</td>
+                <td>{cheeseItem.colour}</td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
 export default CheeseList;
