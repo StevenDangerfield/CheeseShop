@@ -1,5 +1,5 @@
 
-import Cheese from "../types/cheese";
+import Cheese from "../Types/Cheese";
 
 type CheeseListProps = {
   cheeses: Cheese[];
