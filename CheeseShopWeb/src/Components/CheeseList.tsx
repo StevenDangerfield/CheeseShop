@@ -1,13 +1,10 @@
 
 import Cheese from "../Types/Cheese";
+import defaultPhoto from "../Assets/cheddar.jpg"
 
 type CheeseListProps = {
   cheeses: Cheese[];
 };
-
-function getImage(photo : string) {
-  return `data:image/jpeg;base64,${photo}`;
-}
 
 // TODO: Style better and include photos
 function CheeseList({ cheeses }: CheeseListProps) {
@@ -30,7 +27,7 @@ function CheeseList({ cheeses }: CheeseListProps) {
                 <td>{cheeseItem.name}</td>
                 <td>${cheeseItem.pricePerKilo}</td>
                 <td>{cheeseItem.colour}</td>
-                <td><img src={getImage(cheeseItem.photo)} alt={cheeseItem.name} width="128" height="128"/></td>
+                <td><img src={defaultPhoto} alt={cheeseItem.name} width="128" height="128"/></td>
               </tr>
             ))}
         </tbody>

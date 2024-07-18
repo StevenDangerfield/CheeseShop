@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import './App.css'
 import Header from './Header'
 import CheeseList from './CheeseList'
+import CheeseForm from "./CheeseForm";
 
 
 async function getData() {
@@ -31,6 +32,7 @@ function App() {
     <>
       <Header />
       <CheeseList cheeses={data} />
+      <CheeseForm />
     </>
   )
 }
