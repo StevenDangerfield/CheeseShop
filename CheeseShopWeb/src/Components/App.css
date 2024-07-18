@@ -5,6 +5,7 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #6495ED;
   }
   
   code {
@@ -13,8 +14,8 @@ body {
   }
 
 header {
-    background-color: darkslateblue;
-    color: goldenrod;
+    background-color: #6495ED;
+    color: white;
     margin: 5px;
     padding-left: 5px;
   }
@@ -26,3 +27,5 @@ header {
     margin: 5px;
     padding-left: 20px;
   }
+
+  

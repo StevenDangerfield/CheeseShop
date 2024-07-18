@@ -2,7 +2,7 @@
 
 ## CheeseShopApi
 
-NOTE - The react app currently can't access the Production build; use the Development build
+NOTE - Use the Development build, as the react app currently can't access the Production build
 
 ### Development
 
@@ -44,13 +44,3 @@ docker run -d -p 3000:3000 --name cheeseshopweb-container cheeseshopweb
 ```
 
 go to http://localhost:3000
-
-## Build in Docker (combined)
-
-`docker build -t cheeseshop-app .`
-
-## Run in Docker
-
-`docker run -d -p 3000:3000 -p 4000:4000 --name cheeseshop cheeseshop-app`
-
-- NOTE - I couldn't get the React app running in Docker; only the Api works
