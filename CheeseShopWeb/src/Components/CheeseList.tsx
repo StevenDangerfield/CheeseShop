@@ -12,7 +12,7 @@ function getImage(photo : string) {
 // TODO: Style better and include photos
 function CheeseList({ cheeses }: CheeseListProps) {
   return (
-    <div>
+    <div className="cheese-list">
       <h2>Cheese List</h2>
       <table>
         <thead>
