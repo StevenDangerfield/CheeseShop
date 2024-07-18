@@ -69,6 +69,7 @@ app.MapPut("/Cheese/{id}", async (int id, Cheese inputCheese, CheeseDb db) =>
     Cheese.Name = inputCheese.Name;
     Cheese.PricePerKilo = inputCheese.PricePerKilo;
     Cheese.Colour = inputCheese.Colour;
+    Cheese.Photo = inputCheese.Photo;
 
     await db.SaveChangesAsync();
 
