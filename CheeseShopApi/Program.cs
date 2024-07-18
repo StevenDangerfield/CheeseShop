@@ -30,17 +30,7 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowReactApp");
 
-// TODO: Remove hard-coded data
-var cheeses = SampleData.GetData();
-
-app.MapGet("/cheeses", () =>
-{
-    return cheeses;
-})
-.WithName("GetCheeses")
-.WithOpenApi();
-
-app.MapGet("/Cheese", async (CheeseDb db) =>
+app.MapGet("/CheeseList", async (CheeseDb db) =>
     await db.Cheeses.ToListAsync());
 
 app.MapGet("/Cheese/{id}", async (int id, CheeseDb db) =>

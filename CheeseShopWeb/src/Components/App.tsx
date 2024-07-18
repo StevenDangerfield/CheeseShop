@@ -5,7 +5,7 @@ import CheeseList from './CheeseList'
 
 
 async function getData() {
-  const response = await fetch(`https://localhost:4000/cheeses`);
+  const response = await fetch(`https://localhost:4000/CheeseList`);
   const data = await response.json();
 
   console.log(data);
