@@ -16,6 +16,7 @@ async function getData() {
 
 function App() {
   const [data, setData] = useState([]);
+  const [refresh, setRefresh] = useState(0);
 
   async function fetchData() {
     const result = await getData();
@@ -24,7 +25,11 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [refresh]);
+
+  const onCheeseAdded = () => {
+    setRefresh(refresh + 1);
+  }
 
   // TODO: Buttons to Add/Edit/Delete Cheeses
   // TODO: Form for adding/editing cheeses
@@ -32,7 +37,7 @@ function App() {
     <>
       <Header />
       <CheeseList cheeses={data} />
-      <CheeseForm />
+      <CheeseForm onCheeseAdded={onCheeseAdded}/>
     </>
   )
 }

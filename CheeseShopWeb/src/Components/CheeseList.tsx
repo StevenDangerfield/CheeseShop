@@ -27,7 +27,7 @@ function CheeseList({ cheeses }: CheeseListProps) {
                 <td>{cheeseItem.name}</td>
                 <td>${cheeseItem.pricePerKilo}</td>
                 <td>{cheeseItem.colour}</td>
-                <td><img src={defaultPhoto} alt={cheeseItem.name} width="128" height="128"/></td>
+                <td><img src={defaultPhoto} alt={cheeseItem.name} style={{maxWidth: '128px'}}/></td>
               </tr>
             ))}
         </tbody>

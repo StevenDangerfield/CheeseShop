@@ -1,7 +1,11 @@
 import { useState, FormEvent } from 'react';
 import Cheese from '../Types/Cheese';
 
-function CheeseForm() {
+type CheeseFormProps = {
+     onCheeseAdded: () => void;
+};
+
+function CheeseForm({onCheeseAdded} : CheeseFormProps) {
     const [cheese, setCheese] = useState<Cheese>({
         id: 0,
         name: '',
@@ -12,7 +16,7 @@ function CheeseForm() {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        
         try {
             const response = await fetch('https://localhost:4000/Cheese', { //TODO: put in a config file
                 method: 'POST',
@@ -29,7 +33,6 @@ function CheeseForm() {
             const result = await response.json();
             console.log('Success:', result);
 
-
             // Reset form
             setCheese({
                 id: 0,
@@ -38,6 +41,9 @@ function CheeseForm() {
                 colour: '',
                 photo: ''
             });
+
+            onCheeseAdded();
+
         } catch (error) {
             console.error('Error:', error);
         }
