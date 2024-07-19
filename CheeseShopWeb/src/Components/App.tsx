@@ -3,17 +3,8 @@ import './App.css'
 import Header from './Header'
 import CheeseList from './CheeseList'
 import CheeseForm from "./CheeseForm";
-import config from "../config";
+import getData from "../getData";
 
-
-async function getData() {
-  const response = await fetch(`${config.baseApiUrl}/CheeseList`);
-  const data = await response.json();
-
-  console.log(data);
-
-  return data;
-}
 
 function App() {
   const [data, setData] = useState([]);
@@ -33,7 +24,7 @@ function App() {
   }
 
   // TODO: Buttons to Add/Edit/Delete Cheeses
-  // TODO: Form for adding/editing cheeses
+  // TODO: Form for editing cheeses
   return (
     <>
       <Header />
