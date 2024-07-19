@@ -1,5 +1,6 @@
 import { useState, FormEvent } from 'react';
 import Cheese from '../Types/Cheese';
+import config from '../config';
 
 type CheeseFormProps = {
      onCheeseAdded: () => void;
@@ -18,7 +19,7 @@ function CheeseForm({onCheeseAdded} : CheeseFormProps) {
         e.preventDefault();
         
         try {
-            const response = await fetch('https://localhost:4000/Cheese', { //TODO: put in a config file
+            const response = await fetch(`${config.baseApiUrl}/Cheese`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,6 +54,7 @@ function CheeseForm({onCheeseAdded} : CheeseFormProps) {
     return (
         <form onSubmit={handleSubmit}>
             <div>
+                <h3>Add Cheese</h3>
                 <label htmlFor="name">Name:</label>
                 <input
                     type="text"

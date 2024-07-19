@@ -3,10 +3,11 @@ import './App.css'
 import Header from './Header'
 import CheeseList from './CheeseList'
 import CheeseForm from "./CheeseForm";
+import config from "../config";
 
 
 async function getData() {
-  const response = await fetch(`https://localhost:4000/CheeseList`);
+  const response = await fetch(`${config.baseApiUrl}/CheeseList`);
   const data = await response.json();
 
   console.log(data);
