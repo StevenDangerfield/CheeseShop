@@ -68,7 +68,7 @@ function CheeseForm({onCheeseAdded} : CheeseFormProps) {
             <div>
                 <label htmlFor="pricePerKilo">Price per Kilo:</label>
                 <input
-                    type="text"
+                    type="number"
                     value={cheese.pricePerKilo}
                     onChange={(e) =>
                         setCheese({ ...cheese, pricePerKilo: e.target.value })
