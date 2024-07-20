@@ -3,7 +3,7 @@ import './App.css'
 import Header from './Header'
 import CheeseList from './CheeseList'
 import CheeseForm from "./CheeseForm";
-import getData from "../getData";
+import getData from "../Api/getData";
 
 
 function App() {

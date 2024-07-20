@@ -1,4 +1,4 @@
-import config from "./config";
+import config from "../config";
 
 async function getData() {
     const response = await fetch(`${config.baseApiUrl}/CheeseList`);
