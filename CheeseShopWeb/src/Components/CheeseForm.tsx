@@ -11,7 +11,7 @@ function CheeseForm({onCheeseAdded} : CheeseFormProps) {
     const [cheese, setCheese] = useState<Cheese>({
         id: 0,
         name: '',
-        pricePerKilo: '',
+        pricePerKilo: 0,
         colour: '',
         photo: ''
     });
@@ -39,7 +39,7 @@ function CheeseForm({onCheeseAdded} : CheeseFormProps) {
             setCheese({
                 id: 0,
                 name: '',
-                pricePerKilo: '',
+                pricePerKilo: 0,
                 colour: '',
                 photo: ''
             });
@@ -72,7 +72,7 @@ function CheeseForm({onCheeseAdded} : CheeseFormProps) {
                     type="number"
                     value={cheese.pricePerKilo}
                     onChange={(e) =>
-                        setCheese({ ...cheese, pricePerKilo: e.target.value })
+                        setCheese({ ...cheese, pricePerKilo: e.target.valueAsNumber })
                     }
                     required
                 />

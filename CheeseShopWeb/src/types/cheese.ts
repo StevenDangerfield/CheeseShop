@@ -1,7 +1,7 @@
 type Cheese = {
     id: number;
     name: string;
-    pricePerKilo: string;
+    pricePerKilo: number;
     colour: string;
     photo: string;
 }

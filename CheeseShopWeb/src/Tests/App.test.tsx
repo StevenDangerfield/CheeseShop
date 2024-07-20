@@ -1,13 +1,12 @@
 import React from 'react'
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, MockedFunction } from 'vitest';
 import { act, render, screen } from '@testing-library/react'
-import { userEvent } from '@testing-library/user-event'
 import App from '../Components/App';
 import getData from '../Api/getData';
 
 vi.mock('../Api/getData');
 
-const mockedGetData = getData as vi.MockedFunction<typeof getData>;
+const mockedGetData = getData as MockedFunction<typeof getData>;
 
 describe('App', () => {
   it('renders Header, CheeseList, and CheeseForm', async () => {
