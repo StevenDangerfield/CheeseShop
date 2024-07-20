@@ -20,9 +20,9 @@ function App() {
     fetchData();
   }, [refresh]);
 
-  const onCheeseAdded = () => {
+  const onCheeseListChanged = () => {
     setRefresh(refresh + 1);
-    console.log('onCheeseAdded: Refreshing');
+    console.log('onCheeseListChanged');
     console.log(refresh);
   }
 
@@ -31,8 +31,8 @@ function App() {
   return (
     <>
       <Header />
-      <CheeseList cheeses={data} onCheeseDeleted={onCheeseAdded} />
-      <CheeseForm onCheeseAdded={onCheeseAdded}/>
+      <CheeseList cheeses={data} onCheeseDeleted={onCheeseListChanged} />
+      <CheeseForm onCheeseAdded={onCheeseListChanged}/>
     </>
   )
 }

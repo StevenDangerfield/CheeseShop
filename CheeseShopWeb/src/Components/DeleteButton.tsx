@@ -6,7 +6,6 @@ interface DeleteButtonProps {
     onCheeseDeleted : () => void;
 }
 function DeleteButton({cheeseId, onCheeseDeleted}  : DeleteButtonProps) {
-
     const onClick = async () => {
         await deleteCheese(cheeseId);
 
