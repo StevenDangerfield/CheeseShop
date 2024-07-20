@@ -1,4 +1,4 @@
-
+import React from "react";
 import Cheese from "../Types/Cheese";
 import defaultPhoto from "../Assets/cheddar.jpg"
 
