@@ -2,10 +2,10 @@ import React from "react"
 import deleteCheese from "../Api/deleteCheese";
 
 interface DeleteButtonProps {
-    cheeseId : number;
-    onCheeseDeleted : () => void;
+    cheeseId: number;
+    onCheeseDeleted: () => void;
 }
-function DeleteButton({cheeseId, onCheeseDeleted}  : DeleteButtonProps) {
+function DeleteButton({ cheeseId, onCheeseDeleted }: DeleteButtonProps) {
     const onClick = async () => {
         await deleteCheese(cheeseId);
 
@@ -14,7 +14,7 @@ function DeleteButton({cheeseId, onCheeseDeleted}  : DeleteButtonProps) {
 
     return (
         <>
-          <button onClick={onClick}>Delete</button>
+            <button onClick={onClick}>Delete</button>
         </>
     )
 }

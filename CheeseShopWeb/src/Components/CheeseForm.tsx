@@ -4,10 +4,10 @@ import Cheese from '../Types/Cheese';
 import addCheese from "../Api/addCheese";
 
 interface CheeseFormProps {
-     onCheeseAdded: () => void;
+    onCheeseAdded: () => void;
 }
 
-function CheeseForm({onCheeseAdded} : CheeseFormProps) {
+function CheeseForm({ onCheeseAdded }: CheeseFormProps) {
     const [cheese, setCheese] = useState<Cheese>({
         id: 0,
         name: '',
@@ -18,7 +18,7 @@ function CheeseForm({onCheeseAdded} : CheeseFormProps) {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        
+
         await addCheese(cheese);
 
         // Reset form

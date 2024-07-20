@@ -3,7 +3,7 @@ import './App.css'
 import Header from './Header'
 import CheeseList from './CheeseList'
 import CheeseForm from "./CheeseForm";
-import getData from "../Api/getData";
+import getCheeseList from "../Api/getCheeseList";
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
   const [refresh, setRefresh] = useState(0);
 
   async function fetchData() {
-    const result = await getData();
+    const result = await getCheeseList();
     setData(result);
     console.log('fetchData');
   }
@@ -26,13 +26,13 @@ function App() {
     console.log(refresh);
   }
 
-  // TODO: Buttons to Add/Edit/Delete Cheeses
+  // TODO: Buttons to Add/Edit Cheeses
   // TODO: Form for editing cheeses
   return (
     <>
       <Header />
-      <CheeseList cheeses={data} onCheeseDeleted={onCheeseListChanged} />
-      <CheeseForm onCheeseAdded={onCheeseListChanged}/>
+      <CheeseList cheeses={data} onCheeseListChanged={onCheeseListChanged} />
+      <CheeseForm onCheeseAdded={onCheeseListChanged} />
     </>
   )
 }

@@ -18,7 +18,8 @@ async function addCheese(cheese: Cheese) {
         const result = await response.json();
         console.log('Success:', result);
 
-    } catch (error) {
+    }
+    catch (error) {
         console.error('Error:', error);
     }
 }
