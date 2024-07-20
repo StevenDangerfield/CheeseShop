@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, FormEvent } from 'react';
 import Cheese from '../Types/Cheese';
-import config from '../config';
+import addCheese from "../Api/addCheese";
 
-type CheeseFormProps = {
+interface CheeseFormProps {
      onCheeseAdded: () => void;
-};
+}
 
 function CheeseForm({onCheeseAdded} : CheeseFormProps) {
     const [cheese, setCheese] = useState<Cheese>({
@@ -19,37 +19,18 @@ function CheeseForm({onCheeseAdded} : CheeseFormProps) {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         
-        try {
-            const response = await fetch(`${config.baseApiUrl}/Cheese`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(cheese),
-            });
+        await addCheese(cheese);
 
-            if (!response.ok) {
-                throw new Error(`HTTP error: ${response.status}`);
-            }
+        // Reset form
+        setCheese({
+            id: 0,
+            name: '',
+            pricePerKilo: 0,
+            colour: '',
+            photo: ''
+        });
 
-            const result = await response.json();
-            console.log('Success:', result);
-
-            // Reset form
-            setCheese({
-                id: 0,
-                name: '',
-                pricePerKilo: 0,
-                colour: '',
-                photo: ''
-            });
-
-            onCheeseAdded();
-
-        } catch (error) {
-            console.error('Error:', error);
-        }
-        console.log(cheese);
+        onCheeseAdded();
     };
 
     return (

@@ -13,6 +13,7 @@ function App() {
   async function fetchData() {
     const result = await getData();
     setData(result);
+    console.log('fetchData');
   }
 
   useEffect(() => {
@@ -21,6 +22,8 @@ function App() {
 
   const onCheeseAdded = () => {
     setRefresh(refresh + 1);
+    console.log('onCheeseAdded: Refreshing');
+    console.log(refresh);
   }
 
   // TODO: Buttons to Add/Edit/Delete Cheeses
@@ -28,7 +31,7 @@ function App() {
   return (
     <>
       <Header />
-      <CheeseList cheeses={data} />
+      <CheeseList cheeses={data} onCheeseDeleted={onCheeseAdded} />
       <CheeseForm onCheeseAdded={onCheeseAdded}/>
     </>
   )
