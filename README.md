@@ -33,6 +33,13 @@ npm run dev
 
 go to http://localhost:3000
 
+### Unit Tests
+
+```
+cd CheeseShopWeb
+npm test
+```
+
 ### Production
 
 ```
