@@ -2,6 +2,7 @@ import React from "react";
 import { useState, FormEvent } from 'react';
 import Cheese from '../Types/Cheese';
 import addCheese from "../Api/addCheese";
+import toBase64 from "../toBase64";
 
 interface CheeseFormProps {
     onCheeseAdded: () => void;
@@ -16,12 +17,7 @@ function CheeseForm({ onCheeseAdded }: CheeseFormProps) {
         photo: ''
     });
 
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
-        await addCheese(cheese);
-
-        // Reset form
+    const resetForm = () => {
         setCheese({
             id: 0,
             name: '',
@@ -29,8 +25,28 @@ function CheeseForm({ onCheeseAdded }: CheeseFormProps) {
             colour: '',
             photo: ''
         });
+    }
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        await addCheese(cheese);
+
+        resetForm();
 
         onCheeseAdded();
+    };
+
+    const onFileSelected = async (
+        e: React.ChangeEvent<HTMLInputElement>
+    ): Promise<void> => {
+        e.preventDefault();
+        e.target.files &&
+            e.target.files[0] &&
+            setCheese({
+                ...cheese,
+                photo: await toBase64(e.target.files[0]),
+            });
     };
 
     return (
@@ -66,6 +82,14 @@ function CheeseForm({ onCheeseAdded }: CheeseFormProps) {
                     onChange={(e) =>
                         setCheese({ ...cheese, colour: e.target.value })
                     }
+                    required
+                />
+            </div>
+            <div>
+                <label htmlFor="image">Image</label>
+                <input
+                    type="file"
+                    onChange={onFileSelected}
                     required
                 />
             </div>

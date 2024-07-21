@@ -1,6 +1,6 @@
 import config from "../config";
 
-async function deleteCheese(cheeseId: number) {
+async function deleteCheese(cheeseId: number): Promise<void> {
     try {
         const response = await fetch(`${config.baseApiUrl}/Cheese/${cheeseId}`, {
           method: 'DELETE'
@@ -12,7 +12,7 @@ async function deleteCheese(cheeseId: number) {
 
         const result = await response.json();
         console.log('Success:', result);
-    } 
+    }
     catch (error) {
         console.error('Error:', error);
     }

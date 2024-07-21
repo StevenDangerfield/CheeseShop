@@ -1,7 +1,7 @@
 import config from "../config";
 import Cheese from "../Types/Cheese";
 
-async function addCheese(cheese: Cheese) {
+async function addCheese(cheese: Cheese): Promise<void> {
     try {
         const response = await fetch(`${config.baseApiUrl}/Cheese`, {
             method: 'POST',
