@@ -1,5 +1,8 @@
 # CheeseShop
 
+- A simple web app and API for displaying cheeses with prices and photos.
+- This uses React and ASP.NET Core.
+
 ## CheeseShopApi
 
 NOTE - Use the Development build, as the react app currently can't access the Production build
