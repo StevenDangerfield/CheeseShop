@@ -5,8 +5,6 @@
 
 ## CheeseShopApi
 
-NOTE - Use the Development build, as the react app currently can't access the Production build
-
 ### Development
 
 ```
@@ -16,7 +14,9 @@ dotnet run
 
 go to https://localhost:4000/swagger
 
-### Production (Do Not Use)
+### Production (Work in Progress)
+
+- NOTE - Use the Development build to test the full stack, as the React app currently can't access the Production build
 
 ```
 cd CheeseShopApi
