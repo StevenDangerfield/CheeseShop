@@ -27,7 +27,9 @@ function App() {
     }
 
     // TODO: Buttons to Add/Edit Cheeses
-    // TODO: Form for editing cheeses
+    // TODO: Add routing to switch between pages
+    // TODO: Page for adding/editing cheeses
+    // TODO: Better styling for buttons
     return (
         <>
             <Header />

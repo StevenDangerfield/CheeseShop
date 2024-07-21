@@ -2,7 +2,7 @@ using CheeseShopApi;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<CheeseDb>(opt => opt.UseInMemoryDatabase("Cheeses"));
+builder.Services.AddDbContext<CheeseDb>(opt => opt.UseInMemoryDatabase("Cheeses")); // TODO: Switch to using something else like SQLite and store as a file
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // Add services to the container.
