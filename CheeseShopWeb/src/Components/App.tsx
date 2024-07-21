@@ -7,34 +7,34 @@ import getCheeseList from "../Api/getCheeseList";
 
 
 function App() {
-  const [data, setData] = useState([]);
-  const [refresh, setRefresh] = useState(0);
+    const [data, setData] = useState([]);
+    const [refresh, setRefresh] = useState(0);
 
-  async function fetchData() {
-    const result = await getCheeseList();
-    setData(result);
-    console.log('fetchData');
-  }
+    async function fetchData() {
+        const result = await getCheeseList();
+        setData(result);
+        console.log('fetchData');
+    }
 
-  useEffect(() => {
-    fetchData();
-  }, [refresh]);
+    useEffect(() => {
+        fetchData();
+    }, [refresh]);
 
-  const onCheeseListChanged = () => {
-    setRefresh(refresh + 1);
-    console.log('onCheeseListChanged');
-    console.log(refresh);
-  }
+    const onCheeseListChanged = () => {
+        setRefresh(refresh + 1);
+        console.log('onCheeseListChanged');
+        console.log(refresh);
+    }
 
-  // TODO: Buttons to Add/Edit Cheeses
-  // TODO: Form for editing cheeses
-  return (
-    <>
-      <Header />
-      <CheeseList cheeses={data} onCheeseListChanged={onCheeseListChanged} />
-      <CheeseForm onCheeseAdded={onCheeseListChanged} />
-    </>
-  )
+    // TODO: Buttons to Add/Edit Cheeses
+    // TODO: Form for editing cheeses
+    return (
+        <>
+            <Header />
+            <CheeseList cheeses={data} onCheeseListChanged={onCheeseListChanged} />
+            <CheeseForm onCheeseAdded={onCheeseListChanged} />
+        </>
+    )
 }
 
 export default App
